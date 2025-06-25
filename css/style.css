@@ -818,9 +818,11 @@ h1 {
   #price {
     margin-top: 60px;
     /* margin-top: 30px; */
-  }
-  .bg {
     padding: 136px 0;
+  }
+  .price__container {
+    margin: 0 ;
+    padding: 0;
   }
   .price__list {
     grid-template-columns: repeat(3, 1fr);
