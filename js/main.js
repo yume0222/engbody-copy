@@ -47,10 +47,14 @@ window.addEventListener('scroll', () => {
 // Mainvisual
 const checkTrigger = (selector, className) => {
   const triggers = document.querySelectorAll(selector);
+  // 現在のスクロール量
   const scroll = window.scrollY;
+  // ウィンドウの高さ
   const windowHeight = window.innerHeight;
   triggers.forEach(trigger => {
-    const elemPos = trigger.getBoundingClientRect().top + scroll - 50;
+    // 要素の位置（要素の上端がページ全体のどこにあるか） = 要素の上端がビューポート上端からどれだけ離れているか + スクロール位置
+    const elemPos = trigger.getBoundingClientRect().top + scroll;
+    // 要素の上端がウィンドウの下端（scroll + windowHeight）より上に来たら（＝画面内に入ったら）
     if (scroll >= elemPos - windowHeight) {
       trigger.classList.add(className);
     } else {
@@ -71,7 +75,7 @@ window.addEventListener('load', handleScrollOrLoad);
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.tabs__item');
   const bodies = document.querySelectorAll('.tabs__body');
-  tabs.forEach(function(tab, index) {
+  tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => {
       // タブのアクティブ切り替え
       document.querySelector('.tabs__item.is-active').classList.remove('is-active');
@@ -124,12 +128,12 @@ priceList.addEventListener('scroll', () => {
 const questions = document.querySelectorAll('.faq__question');
 const PADDING_BOTTOM = 15;
 // 高さを設定
-function setAnswerHeight(answer) {
+const setAnswerHeight = (answer) => {
   const inner = answer.querySelector('.faq__answer-inner');
   answer.style.height = inner.scrollHeight + PADDING_BOTTOM + 'px';
 }
 // 閉じる
-function closeAnswer(answer) {
+const closeAnswer = (answer) => {
   answer.style.height = answer.scrollHeight + 'px';
   requestAnimationFrame(() => {
     answer.style.height = '0';
