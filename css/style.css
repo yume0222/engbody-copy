@@ -8,7 +8,8 @@ html {
 body {
   color: #111111;
   font-size: 16px;
-  font-family: "Josefin Sans", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Josefin Sans", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
   font-feature-settings: "palt";
 }
 a {
@@ -23,21 +24,70 @@ img {
 ul {
   list-style: none;
 }
+
+/* レイアウト */
 .wrapper {
   max-width: 1170px;
   margin: 0 auto;
   padding: 0 30px;
 }
+/* .section {
+  padding: 20px 0;
+}
+.section--color-reverse .section__inner {
+  padding: 40px 0;
+  background-color: var(--main-color);
+}
+.section__heading {
+  margin-bottom: 30px;
+} */
+
+/* ボタン */
 .btn {
-  display: block;
+  display: inline-block;
+  width: 100%;
+  padding: 20px 10px;
+  border-radius: 50px;
+  background-color: #eb51c2;
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: .05em;
   text-align: center;
-  transition: .3s;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  transition: all 0.3s;
 }
-.btn:hover {
-  opacity: .8;
+.btn--color-reverse {
+  color: #eb51c2;
+  background-color: #fff;
 }
+.btn--center {
+  display: block;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.btn--header {
+  border-radius: 100px;
+  padding: 12px 15px;
+  font-size: 0.75rem;
+}
+.btn.btn--header {
+  display: none;
+}
+.btn.btn--header.active {
+  display: block;
+}
+.btn--mv {
+  width: 220px;
+}
+.btn--about {
+  width: 300px;
+}
+.btn--cta {
+  width: 300px;
+}
+
+/* 見出し */
 .title {
   color: #333333;
   font-size: 2.5rem;
@@ -46,11 +96,12 @@ ul {
 .subtitle {
   color: #eb51c2;
   margin-top: 10px;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 600;
 }
-.color-reverse {
-  color: #ffffff
+.title--color-reverse,
+.subtitle--color-reverse {
+  color: #fff;
 }
 
 /* フェードイン */
@@ -59,7 +110,7 @@ ul {
 }
 
 /* Header */
-#header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -70,31 +121,15 @@ ul {
   width: 100%;
   height: 60px;
   padding: 0 20px;
-  transition: .3s;
+  transition: 0.3s;
 }
-#header.active {
+.header.active {
   background-color: #ffffff;
-  box-shadow: 0 3px 6px rgb(0, 0, 0, .05);
-}
-h1 {
-  line-height: 1px;
-}
-.header__btn {
-  background-color: #eb51c2;
-  color: #ffffff;
-  border-radius: 100px;
-  padding: 12px 15px;
-  font-size: .75rem;
-}
-.btn.header__btn {
-  display: none;
-}
-.btn.header__btn.active {
-  display: block;
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.05);
 }
 
 /* Mainvisual */
-#mainvisual {
+.mv {
   position: relative;
   height: 410px;
   padding: 150px 0 0 20px;
@@ -116,13 +151,7 @@ h1 {
   font-weight: 600;
 }
 .mv__btn {
-  width: 220px;
   margin-top: 15px;
-  background-color: #eb51c2;
-  color: #ffffff;
-  border-radius: 50px;
-  padding: 20px 0;
-  font-size: .8125rem;
 }
 .mv__img {
   position: absolute;
@@ -132,8 +161,8 @@ h1 {
   width: 70%;
   height: 410px;
   border-radius: 0 0 0 50px;
-  background: url('../img/bg_mv.jpg') center center / cover no-repeat;
-  animation: 1s fadeInMvImg .2s forwards;
+  background: url("../img/bg_mv.jpg") center center / cover no-repeat;
+  animation: 1s fadeInMvImg 0.2s forwards;
 }
 @keyframes fadeInMvImg {
   100% {
@@ -157,7 +186,7 @@ h1 {
 }
 .bgappear {
   opacity: 0;
-  animation: bgextendAnimeSecond 1s .6s forwards;
+  animation: bgextendAnimeSecond 1s 0.6s forwards;
 }
 @keyframes bgextendAnimeSecond {
   0% {
@@ -194,7 +223,7 @@ h1 {
 }
 
 /* Intro */
-#intro {
+.intro {
   margin-top: -20px;
   padding: 0 20px;
 }
@@ -207,20 +236,20 @@ h1 {
 .intro__subtitle {
   font-weight: bold;
   text-align: center;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
 }
 .intro__subtitle span {
   color: #eb51c2;
 }
 .intro__text {
   margin-top: 25px;
-  font-size: .9375rem;
+  font-size: 0.9375rem;
   font-weight: 300;
   line-height: 1.8;
 }
 
 /* About */
-#about {
+.about {
   margin-top: 20px;
 }
 .about__list {
@@ -231,22 +260,22 @@ h1 {
 .about__img {
   width: 100%;
 }
-.about__body {
+.about__content {
   position: relative;
   margin: -10px 20px;
   padding: 40px 30px 30px 30px;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 .about__subtitle {
   font-size: 1.125rem;
   font-weight: 400;
 }
-.about-box__subtitle--training {
+.about__subtitle--training {
   color: #eb51c2;
 }
-.about-box__subtitle--food {
+.about__subtitle--food {
   color: #00b21b;
 }
 .about__title {
@@ -257,46 +286,40 @@ h1 {
 }
 .about__text {
   margin-top: 15px;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 300;
   line-height: 1.7;
 }
 .about__btn {
-  width: 300px;
-  margin: 50px auto 0;
-  border-radius: 50px;
-  padding: 20px 0;
-  background-color: #eb51c2;
-  color: #ffffff;
-  font-size: .8125rem;
+  margin-top: 40px;
 }
 
 /* Trainer */
-#trainer {
+.trainer {
   width: 100%;
   height: 100%;
   margin-top: 40px;
   padding: 65px 0;
-  background: url('../img/bg.svg') center top / cover no-repeat;
+  background: url("../img/bg.svg") center top / cover no-repeat;
 }
-.tabs {
+.tab {
   margin-top: 30px;
 }
-.tabs__list {
+.tab__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   cursor: pointer;
 }
-.tabs__item {
+.tab__item {
   padding-bottom: 10px;
   color: #ffffff;
   font-weight: 600;
   text-align: center;
 }
-.tabs__item.is-active {
+.tab__item.tab__item--active {
   position: relative;
 }
-.tabs__item.is-active::before {
+.tab__item.tab__item--active::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -306,12 +329,12 @@ h1 {
   border-radius: 3px;
   background-color: #ffffff;
 }
-.tabs__body {
+.tab__panel {
   display: none;
   margin-top: 20px;
   transition: all 1s;
   animation-name: fade-in;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 @keyframes fade-in {
   from {
@@ -321,27 +344,27 @@ h1 {
     opacity: 1;
   }
 }
-.tabs__body.is-display {
+.tab__panel.is-display {
   display: grid;
   grid-template-columns: 1fr;
   gap: 15px;
 }
-.tabs__box {
+.tab__card {
   border-radius: 10px;
   background-color: #ffffff;
   overflow: hidden;
 }
-.trainer__img {
+.tab__img {
   width: 100%;
 }
-.trainer__text {
+.tab__text {
   padding: 20px;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 
 /* Studio */
-#studio {
+.studio {
   margin-top: 40px;
 }
 .swiper-container {
@@ -363,7 +386,7 @@ h1 {
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
-  top: 50%; 
+  top: 50%;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -382,7 +405,7 @@ h1 {
 .swiper-button-next::after {
   content: "";
   position: absolute;
-  top: 50%; 
+  top: 50%;
   left: calc(50% - 4px);
   width: 8px;
   height: 2px;
@@ -407,13 +430,13 @@ h1 {
 }
 
 /* Price */
-#price {
+.price {
   margin-top: 50px;
   /* margin-top: 20px; */
   width: 100%;
   height: 100%;
   padding: 65px 0;
-  background: url('../img/bg.svg') center top / cover no-repeat;
+  background: url("../img/bg.svg") center top / cover no-repeat;
 }
 .price__container {
   overflow-x: auto;
@@ -489,9 +512,9 @@ h1 {
   right: 5%;
   padding: 10px;
   border-radius: 4px;
-  background: rgba(0, 0, 0, .6);
+  background: rgba(0, 0, 0, 0.6);
   color: #ffffff;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 300;
   transform: translateY(-50%);
 }
@@ -502,7 +525,7 @@ h1 {
 }
 
 /* Faq */
-#faq {
+.faq {
   margin-top: 40px;
 }
 .faq__list {
@@ -532,7 +555,7 @@ h1 {
 .faq__question::after {
   content: "";
   position: absolute;
-  top: 50%; 
+  top: 50%;
   right: 4px;
   width: 2px;
   height: 8px;
@@ -552,17 +575,17 @@ h1 {
 }
 .faq__answer {
   height: 0;
-  transition: height .2s ease-out;
+  transition: height 0.2s ease-out;
   overflow: hidden;
 }
 .faq__text {
-  font-size: .9375rem;
+  font-size: 0.9375rem;
   font-weight: 300;
   line-height: 1.7;
 }
 
 /* Cta */
-#cta {
+.cta {
   margin-top: 50px;
 }
 .cta__img {
@@ -582,22 +605,16 @@ h1 {
   font-weight: bold;
 }
 .cta__btn {
-  width: 300px;
-  margin: 10px auto 0;
-  border-radius: 50px;
-  padding: 20px 0;
-  background-color: #ffffff;
-  color: #eb51c2;
-  font-size: .8125rem;
+  margin-top: 10px;
 }
 
 /* Footer */
-#footer {
+.footer {
   padding: 50px 0;
   background-color: #141414;
   text-align: center;
 }
-#to-top {
+.page-top {
   position: fixed;
   right: 20px;
   bottom: 20px;
@@ -607,16 +624,16 @@ h1 {
   height: 40px;
   border-radius: 50%;
   background-color: #ffffff;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   opacity: 0;
   pointer-events: none;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
-#to-top::before,
-#to-top::after {
+.page-top::before,
+.page-top::after {
   content: "";
   position: absolute;
-  top: 50%; 
+  top: 50%;
   left: calc(50% - 1px);
   width: 2px;
   height: 8px;
@@ -624,24 +641,30 @@ h1 {
   background-color: #eb51c2;
   transform-origin: 50% 1px;
 }
-#to-top::before {
+.page-top::before {
   transform: translateY(-50%) rotate(45deg);
 }
-#to-top::after {
+.page-top::after {
   transform: translateY(-50%) rotate(-45deg);
 }
-#to-top:hover {
-  opacity: .8;
+.page-top:hover {
+  opacity: 0.8;
 }
-#to-top.show {
+.page-top.show {
   opacity: 1;
   pointer-events: auto;
 }
 
 /* TAB表示 */
 @media (min-width: 600px) {
+  /* 共通部分 */
+  /* ボタン */
+  .btn--header {
+    width: 200px;
+  }
+
   /* Mainvisual */
-  #mainvisual {
+  .mv {
     height: 500px;
     padding-left: 5%;
   }
@@ -655,7 +678,7 @@ h1 {
   }
 
   /* Trainer */
-  .tabs__body.is-display {
+  .tab__panel.is-display {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -663,13 +686,37 @@ h1 {
 /* PC表示 */
 @media (min-width: 1025px) {
   /* 共通部分 */
+  /* レイアウト */
+  /* .section {
+    padding: 30px 0;
+  } */
+
   .btn {
-    display: block;
-    font-weight: 600;
-    letter-spacing: .05em;
-    text-align: center;
-    transition: .3s;
+    font-size: 20px;
+    padding: 30px;
   }
+  .btn:hover {
+    opacity: 0.8;
+  }
+  .btn--center {
+    max-width: 360px;
+  }
+  .btn--header {
+    width: 250px;
+    padding: 15px 0;
+    font-size: 0.9375rem;
+  }
+  .btn--mv {
+    width: 370px;
+  }
+  .btn--about {
+    width: 360px;
+  }
+  .btn--cta {
+    width: 360px;
+  }
+
+  /* 見出し */
   .title {
     font-size: 4rem;
   }
@@ -678,21 +725,16 @@ h1 {
   }
 
   /* Header */
-  #header {
+  .header {
     height: 80px;
     padding: 0 35px;
   }
   .header__logo-img {
     width: 180px;
   }
-  .header__btn {
-    width: 250px;
-    padding: 15px 0;
-    font-size: .9375rem;
-  }
 
   /* Mainvisual */
-  #mainvisual {
+  .mv {
     height: 680px;
     padding-top: 220px;
     padding-left: 12%;
@@ -701,10 +743,7 @@ h1 {
     margin-top: 20px;
   }
   .mv__btn {
-    width: 370px;
     margin-top: 30px;
-    padding: 30px 0;
-    font-size: 1.25rem;
   }
   .mv__img {
     height: 680px;
@@ -712,7 +751,7 @@ h1 {
   }
 
   /* Intro */
-  #intro {
+  .intro {
     margin-top: -20px;
     padding: 0 20px;
   }
@@ -730,7 +769,7 @@ h1 {
   }
 
   /* About */
-  #about {
+  .about {
     margin-top: 30px;
   }
   .about__list {
@@ -740,13 +779,13 @@ h1 {
     position: relative;
     display: flex;
   }
-  .reverse {
+  .about__item--reverse {
     flex-direction: row-reverse;
   }
   .about__img {
     width: 70%;
   }
-  .about__body {
+  .about__content {
     position: relative;
     right: 20px;
     bottom: -20px;
@@ -755,7 +794,7 @@ h1 {
     margin: 0;
     padding: 60px;
   }
-  .reverse .about__body {
+  .about__item--reverse .about__content {
     left: 20px;
   }
   .about__subtitle {
@@ -766,32 +805,29 @@ h1 {
     font-size: 2rem;
   }
   .about__text {
-    font-size: .9375rem;
+    font-size: 0.9375rem;
     line-height: 1.8;
   }
   .about__btn {
-    width: 360px;
-    margin: 70px auto 0;
-    padding: 30px 0;
-    font-size: 1.25rem;
+    margin-top: 70px;
   }
 
   /* Trainer */
-  #trainer {
+  .trainer {
     margin-top: 60px;
     padding: 96px 0 136px;
   }
-  .tabs__item {
+  .tab__item {
     padding-bottom: 20px;
     font-size: 1.125rem;
   }
-  .trainer__text {
-    font-size: .9375rem;
+  .tab__text {
+    font-size: 0.9375rem;
     line-height: 1.7;
   }
 
   /* Studio */
-  #studio {
+  .studio {
     margin-top: 60px;
   }
   .swiper-button-prev,
@@ -815,13 +851,13 @@ h1 {
   }
 
   /* Price */
-  #price {
+  .price {
     margin-top: 60px;
     /* margin-top: 30px; */
     padding: 136px 0;
   }
   .price__container {
-    margin: 0 ;
+    margin: 0;
     padding: 0;
   }
   .price__list {
@@ -834,12 +870,12 @@ h1 {
   }
 
   /* Faq */
-  #faq {
+  .faq {
     margin-top: 60px;
   }
 
   /* Cta */
-  #cta {
+  .cta {
     margin-top: 70px;
   }
   .cta__img--sp {
@@ -856,25 +892,22 @@ h1 {
     font-weight: 400;
   }
   .cta__btn {
-    width: 360px;
-    margin: 15px auto 0;
-    padding: 30px 0;
-    font-size: 1.25rem;
+    margin-top: 15px;
   }
 
   /* Footer */
-  #footer {
+  .footer {
     padding: 100px 0;
   }
   .footer__logo-img {
     width: 180px;
   }
-  #to-top {
+  .page-top {
     width: 80px;
     height: 80px;
   }
-  #to-top::before,
-  #to-top::after {
+  .page-top::before,
+  .page-top::after {
     left: calc(50% - 2px);
     width: 4px;
     height: 16px;
