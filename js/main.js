@@ -33,7 +33,7 @@ fadeElements.forEach((fadeElement) => {
 
 // Header
 const header = document.querySelector('#header');
-const btn = document.querySelector('.btn.header__btn');
+const btn = document.querySelector('.btn.btn--header');
 window.addEventListener('scroll', () => {
   if(window.scrollY > 200) {
     header.classList.add('active');
@@ -73,15 +73,15 @@ window.addEventListener('load', handleScrollOrLoad);
 
 // タブメニュー
 document.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.tabs__item');
-  const bodies = document.querySelectorAll('.tabs__body');
-  tabs.forEach((tab, index) => {
+  const tab = document.querySelectorAll('.tab__item');
+  const bodies = document.querySelectorAll('.tab__panel');
+  tab.forEach((tab, index) => {
     tab.addEventListener('click', () => {
       // タブのアクティブ切り替え
-      document.querySelector('.tabs__item.is-active').classList.remove('is-active');
-      tab.classList.add('is-active');
+      document.querySelector('.tab__item.tab__item--active').classList.remove('tab__item--active');
+      tab.classList.add('tab__item--active');
       // コンテンツの表示切り替え
-      document.querySelector('.tabs__body.is-display').classList.remove('is-display');
+      document.querySelector('.tab__panel.is-display').classList.remove('is-display');
       bodies[index].classList.add('is-display');
       bodies[index].animate(
         {
@@ -166,7 +166,7 @@ window.addEventListener('resize', () => {
 });
 
 // トップへ戻る
-const toTop = document.querySelector('#to-top');
+const toTop = document.querySelector('#page-top');
 window.addEventListener('scroll', () => {
   if(window.scrollY > 300) {
     toTop.classList.add('show');
